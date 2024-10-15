@@ -3,9 +3,8 @@ import { socket } from "../socket";
 import axios from "axios";
 
 const MessagesContext = createContext();
-
-const baseUrl =
-  process.env.REACT_APP_API_URL + "/api" || "http://localhost:3001/api";
+const envUrl = process.env.REACT_APP_API_URL;
+const baseUrl = envUrl ? envUrl + "/api" : "http://localhost:3001/api";
 
 export const MessagesProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);

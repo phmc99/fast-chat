@@ -5,8 +5,9 @@ import { jwtDecode } from "jwt-decode";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const baseUrl =
-    process.env.REACT_APP_API_URL + "/api" || "http://localhost:3001/api";
+  const envUrl = process.env.REACT_APP_API_URL;
+  const baseUrl = envUrl ? envUrl + "/api" : "http://localhost:3001/api";
+
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
@@ -38,6 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (values) => {
     try {
+      console.log(baseUrl);
       const response = await axios.post(baseUrl + "/auth/login", {
         email: values.email,
         password: values.password,
