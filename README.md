@@ -11,6 +11,10 @@ Esse projeto pode ser iniciado de duas formas:
 
 Para iniciar com docker
 
+- Execute as migrations
+  - Você pode executar `docker exec -it abc123 npx prisma migrate deploy`
+  - Òutra opção. Altere o CMD no Dockerfile em ./backend para o de migrations e utilize o comando abaixo. Após isso altere para o CMD de execução e use o comando novamente.
+
 ```bash
   docker-compose up --build
 ```

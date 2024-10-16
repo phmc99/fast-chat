@@ -24,4 +24,8 @@ COPY --from=builder /app/package*.json ./
 
 RUN npx prisma generate
 
+# Migrations
+#CMD ["npx", "prisma", "migrate", "deploy"]
+
+# Execucao
 CMD [ "npm", "run", "dev" ]
