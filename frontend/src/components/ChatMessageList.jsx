@@ -43,6 +43,7 @@ export default function ChatMessageList() {
           key={msg.id}
           name={msg?.user?.nickname}
           msg={msg?.text}
+          date={msg?.createdAt}
           isOwner={msg?.user?.nickname === user?.nickname}
         />
       ))}

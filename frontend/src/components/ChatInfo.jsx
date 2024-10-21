@@ -1,6 +1,7 @@
 import {
   Avatar,
   AvatarBadge,
+  CloseButton,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -20,9 +21,17 @@ export default function ChatInfo({ onClose, isOpen, usersInRoom = [] }) {
     <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerHeader borderBottomWidth="1px">Informações da Sala</DrawerHeader>
+        <DrawerHeader borderBottomWidth="1px">
+          <Flex justify={"space-between"}>
+            <Heading size={"md"} fontWeight={"semibold"}>
+              Suas Informações{" "}
+            </Heading>
+            <CloseButton onClick={onClose} />
+          </Flex>
+        </DrawerHeader>
         <DrawerBody>
           <Stack align={"center"}>
+            <Text fontSize={"sm"}>Sala:</Text>
             <Heading size={"lg"}>{chatId}</Heading>
 
             <Stack>

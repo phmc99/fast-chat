@@ -45,6 +45,7 @@ export default function ChatTextEditor() {
         placeholder="Digite sua mensagem aqui"
         onChange={(e) => setText(e.target.value)}
         value={text}
+        maxLength={254}
       />
       <IconButton
         color={"blue.500"}

@@ -1,11 +1,13 @@
 import {
   Button,
+  CloseButton,
   Divider,
   Drawer,
   DrawerBody,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Flex,
   Heading,
   Stack,
   Text,
@@ -58,7 +60,14 @@ export default function UserInfo({ onClose, isOpen }) {
     <Drawer placement={"left"} onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerHeader borderBottomWidth="1px">Suas Informações</DrawerHeader>
+        <DrawerHeader borderBottomWidth="1px">
+          <Flex justify={"space-between"}>
+            <Heading size={"md"} fontWeight={"semibold"}>
+              Suas Informações{" "}
+            </Heading>
+            <CloseButton onClick={onClose} />
+          </Flex>
+        </DrawerHeader>
         <DrawerBody>
           <Stack align={"center"}>
             <Heading size={"lg"}>Olá, {nickname}!</Heading>
